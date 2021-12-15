@@ -6,7 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MISA.Fresher.Core.Interface;
 using MISA.Fresher.Core.Interface.Repository;
+using MISA.Fresher.Core.Services;
 using MISA.Fresher.Infrastruture.Reponsitory;
 using System;
 using System.Collections.Generic;
@@ -34,7 +36,10 @@ namespace MISA.Fresher.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MISA.Fresher.WebApi", Version = "v1" });
             });
+            //Employee
             services.AddScoped<IEmployeeReponsitory, EmployeeReponsitory>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
+            //
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
